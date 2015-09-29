@@ -1,0 +1,47 @@
+tee 读取标准输入的数据，并将其内容输出成文件。example：who | tee who.out 跟>类似
+alias 设置指令的别名。 example:alias ls='ls --color=auto'
+which  查看可执行文件的位置。example：which who
+file 查看文件类型。example file /dev/sda
+echo - display a line of text    example：echo “who”
+man - an interface to the on-line reference manuals example：man man
+sed是一个很好的文件处理工具，本身是一个管道命令，主要是以行为单位进行处理，可以将数据行进行替换、删除、新增、选取等特定工作
+         a   ∶新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～
+         c   ∶取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！
+         d   ∶删除，因为是删除啊，所以 d 后面通常不接任何咚咚；
+         i   ∶插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；
+         p  ∶列印，亦即将某个选择的资料印出。通常 p 会与参数 sed -n 一起运作～
+         s  ∶取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！
+         sed 's/要替换的字符串/新的字符串/g'   （要替换的字符串可以用正则表达式）
+view 类似vi vim 文件编辑器
+find find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录
+ln 为某一个文件在另外一个位置建立一个同不的链接；这里有两点要注意：第一，ln命令会保持每一处链接文件的同步性，也就是说，不论你改动了哪一处，其它的文件都会发生相同的变化；
+	第二，ln的链接又 软链接和硬链接两种，软链接就是ln –s ** **，它只会在你选定的位置上生成一个文件的镜像，不会占用磁盘空间，硬链接ln ** **，没有参数-s， 
+	它会在你选定的位置上生成一个和源文件大小相同的文件，无论是软链接还是	硬链接，文件都保持同步变化。
+	将档案 yy 产生一个 symbolic link : zz
+　　	ln -s yy zz
+　　	将档案 yy 产生一个 hard link : zz
+　　	ln yy xx?
+whereis [-bmsu] 文件或者目录名称
+du查看目录大小，df查看磁盘使用情况。example ： du -sh *
+ps查看进程 example ps -aux
+top 动态查看cpu 内存的使用情况
+grep, egrep, fgrep - print lines matching a pattern   example:grep “root” /etc/passwd
+tailf 类似于tail -f 动态查看文件，example： tail -f logcat.log
+demsg 查看开机信息
+su 切换用户 su - root
+awk gawk - pattern scanning and processing language  example： ifconfig eth1 | grep "inet addr:" | awk '{print $2}'
+bc linux下的一个计算器
+date 打印当前服务器时间可以添加格式输出 比如  date +%Y%m%d
+wc命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出 比如 ps -aux|wc -l 统计当前有多少个进程
+export 设置或显示环境变量export PATH="$PATH:/opt/au1200_rm/build_tools/bin"
+
+TCPCopy是一种请求复制（所有基于tcp的packets）工具，可以把在线流量导入到测试系统中去。
+曾经应用于网易的广告投放系统，urs系统，nginx hmux协议等系统，避免了上线带来的很多问题。
+目前此工具已经广泛应用于各大互联网公司。略深奥没看懂
+tcpdump - dump traffic on a network    tcpdump -i any -p -s 0 -w /data/local/capture.pcap
+netstat  - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships     netstat -nlop
+nslookup - query Internet name servers interactively ，for example   nslookup -qt=A www.baidu.com 8.8.8.8 制定dns解析域名
+
+
+
+自己看命令的时候简单整理了一下，需要深入了解的可以 man 命令 for example ： man scp
